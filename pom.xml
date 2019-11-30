@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.jin</groupId>
+    <artifactId>maven-demo</artifactId>
+    <version>1.0</version>
+    <modules>
+        <module>sub1-module</module>
+    </modules>
+    <packaging>pom</packaging>
+
+    <!--
+        dependencies里面的依赖子模块可以直接使用
+    -->
+    <!--
+    <dependencies>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.62</version>
+        </dependency>
+    </dependencies>
+    -->
+
+    <!--
+        dependencyManagement里面的依赖子模块不可以直接使用，子模块中需要按如下方式引入才能使用:
+
+        <dependencies>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+            </dependency>
+        </dependencies>
+    -->
+    <!---->
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>1.2.62</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+</project>
